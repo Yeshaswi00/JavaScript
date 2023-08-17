@@ -1,0 +1,272 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+        <style>
+            #d3{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+            #d3 li {
+                width:200px ;
+                list-style:none;
+                font-size:17px;
+                border:1px solid;
+                text-align: center;
+                font-family: verdana;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 10px 5px 15px 0px purple;
+                margin:10px 35px 10px 10px;
+            }
+            #d3 li img{
+                width: 100px;
+                display: block;
+                text-align: center;
+            }
+            #d3 li div img{
+                margin-left: 50px;
+            }
+        </style>
+    </head>
+    <body>
+       <button onclick="abc()">Click on me</button>
+            <table id="d1"></table>
+        <script>
+            function abc(){
+              $.get("https://jsonplaceholder.typicode.com/photos",function(photos,b){
+                console.log(photos)
+                var y=document.createElement("tr")
+                var ar=["id","albumId","title","url","thumbnaiUrl"]
+                ar.forEach(function(values){
+               var d=document.createElement("th")
+                    d.innerHTML=values;
+                    d.style.border="1px solid"
+                    d.style.textAlign="center"
+                    y.appendChild(d)
+                    var d1=document.getElementById("d1").appendChild(y)
+                    console.log(values)
+    })
+               
+                photos.forEach(function(photos) {
+                    var a=document.createElement("tr")
+                    a.style.border="1px solid"
+                    var bb=document.createElement("td")
+                    bb.style.border="1px solid"
+                    bb.style.textAlign="center"
+                    var b=document.createElement("td")
+                    b.style.border="1px solid"
+                    b.style.textAlign="center"
+                    var c=document.createElement("td")
+                    c.style.border="1px solid"
+                    var d=document.createElement("td")
+                    var img=document.createElement("img")
+                    img.src=photos.url
+                    img.style.width="200px"
+                    img.style.height="150px"
+                    img.style.textAlign="center"
+                    d.style.border="1px solid"
+                    var e=document.createElement("td")
+                    var img1=document.createElement("img")
+                    img1.src=photos.thumbnailUrl
+                    img1.style.width="100%"
+                    img1.style.height="50%"
+                    img1.style.textAlign="center"
+                    e.style.border="1px solid"
+                    bb.innerHTML=photos.id
+                    b.innerHTML=photos.albumId
+                    c.innerHTML=photos.title
+                    d.appendChild(img)
+                    e.appendChild(img1)
+                    a.appendChild(bb)
+                    a.appendChild(b)
+                    a.appendChild(c)
+                    a.appendChild(d)
+                    a.appendChild(e)
+                    d1.appendChild(a)
+                    console.log(d1)
+
+
+                });
+                console.log("b:",b)
+            })
+            }
+        </script>
+        <ul id="d2"></ul>
+        <script>
+                console.log(axios)
+                axios.get("https://jsonplaceholder.typicode.com/photos").then(function(res){
+                    var photos=res.data;
+                    var d2=document.getElementById("d2")
+                    photos.forEach(function(value){
+                        var li=document.createElement("li")
+                        var ul=document.createElement("ul")
+                        var li1=document.createElement("li")
+                        var img1=document.createElement("img")
+                        img1.src=value.thumbnailUrl
+                        img1.style.width="50%"
+                        img1.style.height="25%"
+                        li.innerHTML=value.title
+                        li1.appendChild(img1)
+                        ul.appendChild(li1)
+                        li.appendChild(ul)
+                        d2.appendChild(li)
+                    })
+                }).catch(function(err){console.log(err)})
+
+            
+        </script>
+        <button onclick="hi()">Click on it</button>
+        <button onclick="ase()">Ascending</button>
+        <button onclick="dec()">Decending</button>
+        <input type="text" onkeyup="au()" id="fd">
+        <ul id="d3"></ul>
+        <script>
+            function hi(){
+                $.get("https://jsonplaceholder.typicode.com/photos",function(photos,status){
+                    console.log(photos)
+                    d3.innerHTML=''
+                   photos.forEach(function(photos){
+                        var newli=document.createElement("li")
+                        var h5=document.createElement("h5")
+                        h5.innerHTML= "title: "+photos.title
+                        newli.appendChild(h5)
+                        var img1=document.createElement("img")
+                        img1.src=photos.url
+                        img1.style.width="50%"
+                        img1.style.height="25%"
+                        var div=document.createElement("div")
+                        div.appendChild(img1)
+                        newli.appendChild(div)
+                        var h1=document.createElement("div")
+                        h1.style.height="10%"
+                        newli.appendChild(h1)
+                        var img2=document.createElement("img")
+                        img2.src=photos.thumbnailUrl
+                        img2.style.width="50%"
+                        img2.style.height="25%"
+                        var div1=document.createElement("div")
+                        div1.appendChild(img2)
+                        newli.appendChild(div1)
+                      
+                        document.getElementById("d3").appendChild(newli)
+                    })
+                })
+            }
+            function ase(){
+                $.get("https://jsonplaceholder.typicode.com/photos",function(photos,status){
+                    console.log(photos)
+                        d3.innerHTML=''
+                  photos.sort(function(a,b){
+                            if(a.title>b.title){
+                                return 1;
+                            }
+                            if(b.title>a.tile){
+                                return -1;
+                            }
+                            return 0
+                        })
+                       photos.forEach(function(photos){
+                        var newli=document.createElement("li")
+                        var h5=document.createElement("h5")
+                        h5.innerHTML= "title: "+photos.title
+                        newli.appendChild(h5)
+                        var img1=document.createElement("img")
+                        img1.src=photos.url
+                        img1.style.width="50%"
+                        img1.style.height="25%"
+                        var div=document.createElement("div")
+                        div.appendChild(img1)
+                        newli.appendChild(div)
+                        var h1=document.createElement("div")
+                        h1.style.height="10%"
+                        newli.appendChild(h1)
+                        var img2=document.createElement("img")
+                        img2.src=photos.thumbnailUrl
+                        img2.style.width="50%"
+                        img2.style.height="25%"
+                        var div1=document.createElement("div")
+                        div1.appendChild(img2)
+                        newli.appendChild(div1)
+                      
+                        document.getElementById("d3").appendChild(newli)
+                    })
+                })
+            }
+            function dec(){
+                $.get("https://jsonplaceholder.typicode.com/photos",function(photos,status){
+                    console.log(photos)
+                        d3.innerHTML=''
+                  photos.sort(function(a,b){
+                            if(a.title<b.title){
+                                return 1;
+                            }
+                            if(b.title<a.title){
+                                return -1;
+                            }
+                            return 0
+                        })
+                        photos.forEach(function(photos){
+                            var newli=document.createElement("li")
+                        var h5=document.createElement("h5")
+                        h5.innerHTML= "title: "+photos.title
+                        newli.appendChild(h5)
+                        var img1=document.createElement("img")
+                        img1.src=photos.url
+                        img1.style.width="50%"
+                        img1.style.height="25%"
+                        var div=document.createElement("div")
+                        div.appendChild(img1)
+                        newli.appendChild(div)
+                        var h1=document.createElement("div")
+                        h1.style.height="10%"
+                        newli.appendChild(h1)
+                        var img2=document.createElement("img")
+                        img2.src=photos.thumbnailUrl
+                        img2.style.width="50%"
+                        img2.style.height="25%"
+                        var div1=document.createElement("div")
+                        div1.appendChild(img2)
+                        newli.appendChild(div1)
+                      
+                        document.getElementById("d3").appendChild(newli)
+                    })
+                })
+            }
+            var n=document.getElementById("fd")
+            function au(){
+            $.get("https://jsonplaceholder.typicode.com/photos",function(abc,val){
+               var m= abc.filter(function(value,i){
+                return(value.title.toLowerCase().startsWith(n.value.toLowerCase()))
+               })
+               console.log(m)
+              d3.innerHTML=""
+               m.forEach(function(value,index){
+                       var c=document.createElement('li')
+                       c.innerHTML= "Title"+value.title
+                       c.style.display='inline-block'
+                       c.style.padding="20px"
+                       c.style.textAlign='center'
+                       c.style.border='2px solid black'
+                       c.style.margin='10px'
+                       d3.appendChild(c)
+                       var im=document.createElement('img')
+                       im.src=value.url
+                       im.style.width='200px'
+                       im.style.height='100px'
+                       im.style.display='flex'
+                       c.appendChild(im)
+                       var im1=document.createElement('img')
+                       im1.src=value.thumbnailUrl
+                       im1.style.width='200px'
+                       im1.style.height='100px'
+                       im1.style.display='flex'
+                       c.appendChild(im1)
+                    })
+          })
+   }
+        </script>
+
+    </body>
+</html>

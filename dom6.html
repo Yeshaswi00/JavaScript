@@ -1,0 +1,207 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    </head>
+    <body>
+        Enter Url:<input type="text" id="de">
+        <button onclick="x(event)">Add Image</button>
+        <div>
+           <img src="" id="g">
+        </div>
+        <br><br>
+        <script>
+            var de=document.getElementById('de')
+            var g=document.getElementById('g')
+            function x(e){
+               
+                g.src=de.value
+                
+            }
+        </script>
+    </body>
+</html>
+<html>
+    <head></head>
+    <body> 
+        <input type="text" id="fg">
+        <button onclick="dfg(event)">Add student</button>
+        <ul id="ll">
+
+        </ul>
+        <script>
+         var ll=document.getElementById('ll')
+         var fg=document.getElementById('fg')
+        var i=0
+         var ar=[]
+         function dfg(e){
+            
+            ar[i]=fg.value
+            i++
+           ll.innerHTML=""
+
+            ar.forEach(function(value){
+                var k=document.createElement('li')
+               k.innerHTML=value
+               ll.appendChild(k)
+            })
+           
+         }
+        </script>
+        <ul id="d1"></ul>
+        <ul id="d2"></ul>
+        <script>
+            var ar=['harshi','resh','bhar','surat'];
+            var y=document.getElementById('d1')
+            var z=document.getElementById('d2')
+            function genUI(){
+                z.innerHTML='';
+            ar.forEach(function(a,i){
+                var x= document.createElement("li");
+                x.innerHTML=a;
+                var dbtn=document.createElement("button");
+                dbtn.innerHTML="delete"
+                x.appendChild(dbtn)
+                dbtn.onclick=function(){ar.splice(i,1);genUI()}
+                z.appendChild(x)
+            })
+
+            }
+            genUI()
+            </script>
+        Enter Url:<input type="text" id="de">
+        <button onclick="x(event)">Add Image</button>
+        <div id="d8">
+           <!--<img src="" id="g">-->
+        </div>
+        <br><br>
+        <script>
+            var t=document.getElementById('de')
+           var f=document.getElementById('g')
+            var z=document.getElementById('d8')
+            var j=0
+            var a=[]
+            function x(e){
+                a.push(t.value)
+                console.dir(t)
+                z.innerHTML=""
+                a.forEach(function(v){
+                var b=document.createElement('img')
+                b.src=v
+                z.appendChild(b)
+                
+             })
+                
+                
+            }
+        </script>
+                <form onsubmit="event.preventDefault()">
+                 <span>Name:</span> <input type="text" id="fn"><br>
+                   <span>Number:</span><input type="text" id="ln"><br>
+                   <span> Email:</span><input type="text" id="hn"><br>
+                   <span>Enter Url:</span><input type="text" id="url">
+                    <br>
+        <button onclick="v(event)">Add Contact</button>
+           <div id="d5"></div>
+
+        <br><br>
+        <script>
+            var ar=[]
+            i=0
+            var d5=document.getElementById("d5")
+            function v(e){
+                var ar1={};
+            var fn=document.getElementById('fn').value
+            var ln=document.getElementById('ln').value
+            var hn=document.getElementById("hn").value
+            var url=document.getElementById('url').value
+            ar1.fn=fn
+            ar1.ln=ln
+            ar1.url=url
+            ar[i]=ar1
+            var y=document.createElement("div")
+            d5.style.border="2px solid red"
+            d5.style.width="50%"
+            d5.style.height="30%"
+            d5.style.backgroundColor="yellow"
+             var img=document.createElement("img")
+             img.src=ar[i].url
+             img.style.borderRadius="50%"
+             img.style.width="70px"
+             img.style.height="70px"
+             y.appendChild(img)
+             var p=document.createElement("p")
+             p.innerHTML="Name:"+ar[i].fn
+             y.appendChild(p)
+             var p1=document.createElement("p")
+             p1.innerHTML="Number:"+ar[i].ln
+             y.appendChild(p1)
+             var p2=document.createElement("p")
+             p2.innerHTML="Email:"+ar[i].ln
+             y.appendChild(p2)
+            d5.appendChild(y)
+            i++
+            console.log(ar)
+
+                
+            }
+                    
+                
+                    
+            </script>
+            <form onsubmit="event.preventDefault()">
+                <span>Name:</span> <input type="text" id="fn"><br>
+                  <span>Number:</span><input type="text" id="ln"><br>
+                  <span> Email:</span><input type="text" id="hn"><br>
+                  <span>Enter Url:</span><input type="text" id="url">
+                   <br>
+       <button onclick="x(event)">Add Contact</button>
+          <div id="d5"></div>
+
+       <br><br>
+       <script>
+           var ar=[]
+           i=0
+           var d5=document.getElementById("d5")
+           function x(e){
+               var ar1={};
+           var fn=document.getElementById('fn').value
+           var ln=document.getElementById('ln').value
+           var hn=document.getElementById("hn").value
+           var url=document.getElementById('url').value
+           ar1.fn=fn
+           ar1.ln=ln
+           ar1.url=url
+           ar[i]=ar1
+           var y=document.createElement("div")
+           d5.style.border="2px solid red"
+           d5.style.width="50%"
+           d5.style.height="30%"
+           d5.style.backgroundColor="yellow"
+            var img=document.createElement("img")
+            img.src=ar[i].url
+            img.style.borderRadius="50%"
+            img.style.width="70px"
+            img.style.height="70px"
+            var b=document.createElement("i")
+            b.innerHTML=
+            y.appendChild(img)
+            var p=document.createElement("p")
+            p.innerHTML="Name:"+ar[i].fn
+            y.appendChild(p)
+            var p1=document.createElement("p")
+            p1.innerHTML="Number:"+ar[i].ln
+            y.appendChild(p1)
+            var p2=document.createElement("p")
+            p2.innerHTML="Email:"+ar[i].ln
+            y.appendChild(p2)
+           d5.appendChild(y)
+           i++
+           console.log(ar)
+
+               
+           }
+                   
+               
+                   
+           </script>
+</html>

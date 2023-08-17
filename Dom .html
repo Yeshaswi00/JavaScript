@@ -1,0 +1,78 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+   <!--    <h1>Hello World</h1>
+        <p class="c">Hello World</p>
+        <p class="c">Hello World</p>
+        <h1 id="a">hello</h1>
+        <h1 class="abc">hello</h1>
+        <h1 id="cba">welcome</h1>
+        <script>
+            var a=document.getElementsByTagName("h1")
+            console.log(a)
+            console.log(typeof a)
+            var c=document.getElementById("a")
+            var c=document.getElementsByClassName("abc")
+            console.log(c[0])
+            var c=document.getElementById("cba")
+            console.log(c)
+            var d=document.getElementsByClassName("c")
+            console.log(d)
+            console.log(d[0])
+            console.log(d[1])
+
+        </script>-->
+        <h1 id="abc">Hello World</h1>
+
+        <h1 class="a">Hello</h1>
+        <h2 class="a">Edupoly</h2>
+        <p class="b">Training</p>
+
+        <ul class="a1">
+            <li>Apple</li>
+            <li>Mango</li>
+            <li>Orange</li>
+         </ul>
+
+         <h1>Hello</h1>
+        <p>Edupoly</p>
+        <p>Training</p>
+        <p>Something</p>  
+
+        <script>
+         var a=document.getElementsByTagName("h1")
+        console.log(a[0])
+            console.log( a[0].innerHTML.toUpperCase())
+            console.log(typeof a)
+            var x=document.getElementById("abc")
+            x.innerHTML="Welcome to Edupoly"
+        </script>
+        <script>
+            var x=document.getElementsByClassName("a")
+            for(i=0;i<=1;i++){
+            console.log(x[i].innerHTML)
+            }
+            
+            var y=document.getElementsByClassName("b")
+            console.log(y[0].innerText)
+        </script>
+        <script>
+            var ar=[]
+            var x = document.querySelectorAll("li");
+            for ( i = 0; i <= x.length - 1; i++) {
+                for(j=0;j<=x.length-1;j++){
+                    ar[j]=x[j].innerHTML
+                }
+            
+             }
+             console.log(ar)
+        </script>
+        <script>
+            var x=document.getElementsByTagName("p")
+            console.log(x[0].innerHTML)
+        </script>
+    </body>
+    </html>
+

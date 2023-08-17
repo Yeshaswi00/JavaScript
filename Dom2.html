@@ -1,0 +1,327 @@
+<html>
+    <head>
+         
+    </head>
+    <body >
+        <button onclick="abc()">Add Text</button>
+        <div id="d1"></div>
+        <script>
+            function abc(){
+            var a=document.createElement("h1")
+              a.innerHTML="Welcome to a different world"
+              var y=document.getElementById("d1");
+               y.appendChild(a);
+             
+            }
+        </script>
+        <br>
+
+        <div style="border: 2px solid;width: 20%;height: 10%;" id="p"></div>
+        <br>
+
+    <button onclick="p()">red</button>
+    <button onclick="b()">green</button>
+    <button onclick="i()">blue</button>
+    <button onclick="j()">reset</button>
+    <script>
+      function p(){
+        var a=document.getElementById("p")
+        a.style.backgroundColor="red"
+      } 
+      function b(){
+        var b=document.getElementById("p")
+        b.style.backgroundColor="green"
+      }
+      function i(){
+        var c=document.getElementById("p")
+        c.style.backgroundColor="blue"
+      }  
+      function j(){
+        var d=document.getElementById("p")
+        d.style.backgroundColor="white"
+      }  
+    </script>
+    <h1 style="color: red;text-align: center;">Change button background color on click</h1>
+   <center> <button  onclick="s1()" ondblclick="s2()"  id="d3" >white</button></center>
+    <script>
+        var d3=document.getElementById("d3")
+        d3.style.backgroundColor="white";
+        function s1(){
+            if(d3.style.backgroundColor==="white"){
+                d3.innerHTML="green"
+                d3.style.backgroundColor="green"
+                d3.style.color="white"
+            }
+            else{
+                d3.innerHTML="white"
+                d3.style.backgroundColor="white"
+                d3.style.color="black"
+            }
+        }
+        
+    </script>
+        <div  id="d4"  onclick="s()" style="border: 2px solid;width: 20%;height: 10%;"></div>
+        <script>
+        var ar=["red","blue","pink","voilet","black","yellow"]
+        var i=0
+        function s(){
+
+        }
+        </script>
+
+    <br>
+    <h1 id="d5"><button  onclick="a(event)">text it</button></h1>
+    <script>
+        function a(e){
+            e.target.innerHTML=""
+            var a=document.getElementById("d5")
+            a.innerHTML="oops"
+
+        }
+    </script>
+        <button  onclick="c()">button</button>
+        <br>
+        <div id="d6"></div>
+        <script>
+            function c(){
+        var d6=document.getElementById("d6");
+        var a=document.createElement("table");
+        a.style.border="1px solid"
+        d6.appendChild(a);
+        var b=document.createElement("tr");
+        b.style.border="1px solid"
+        a.appendChild(b);
+        var c=document.createElement("th");
+        c.style.border="1px solid"
+        c.innerHTML="Name";
+        b.appendChild(c);
+        var d=document.createElement("th");
+        d.style.border="1px solid"
+        d.innerHTML="Age";
+        b.appendChild(d);
+        var e=document.createElement("th");
+        e.style.border="1px solid"
+        e.innerHTML="Gender";
+        b.appendChild(e);
+        var j=document.createElement("tr");
+        j.style.border="1px solid"
+        a.appendChild(j);
+        var h=document.createElement("td");
+        h.style.border="1px solid"
+        j.appendChild(h);
+        h.innerHTML="Reshma";
+        var i=document.createElement("td");
+        i.style.border="1px solid"
+        j.appendChild(i);
+        i.innerHTML="22";
+        var k=document.createElement("td");
+        k.style.border="1px solid"
+        j.appendChild(k);
+        k.innerHTML="Nellore";
+        var l=document.createElement("tr");
+        l.style.border="1px solid"
+        a.appendChild(l);
+        var m=document.createElement("td");
+        m.style.border="1px solid"
+        l.appendChild(m);
+        m.innerHTML="Bharathi";
+        var n=document.createElement("td");
+        n.style.border="1px solid"
+        l.appendChild(n);
+        n.innerHTML="22";
+        var o=document.createElement("td");
+        o.style.border="1px solid"
+        l.appendChild(o);
+        o.innerHTML="Hyd";
+        var z=document.getElementById("d6");
+        z.appendChild(a);
+    
+            }
+        </script>
+        <br>
+    <button onmouseover="b1()">script</button>
+    <script>
+        function b1(){
+            alert("hello")
+        }
+    </script>
+    <br>
+    <br>
+    <button onclick="d()">Decrement</button>
+    <span id="a5"></span>
+    <button onclick="e()">Increment</button>
+    <script>
+        var count=0
+        var a5=document.getElementById("a5")
+        a5.innerHTML=count
+        function d(){
+            count--
+            a5.innerHTML=count
+            
+        }
+        function e(){
+            count++
+            a5.innerHTML=count
+        }
+    </script>
+    <h1 style="color: red;text-align: center;">Toggle button to show true/false</h1>
+    <center><button id="d1" onclick="abc()" style="background-color: chocolate;">Toggle</button><span id="sp"> </span></center><br><br>
+    <div id="d"></div>
+    <script>
+        var x=false
+        var y=document.getElementById("sp")
+        y.innerHTML=x
+        function abc(){
+            x=!x;
+            y.innerHTML=x
+        }
+        
+    </script>
+
+    <div id="r3" onclick="ff()" style="border: 2px solid;width: 20%;height: 10%;text-align: center; background-color: grey;"></div>
+    <script>
+        var r3=document.getElementById("r3")
+        r3.innerHTML="On"
+        function ff(){
+            if(r3.innerHTML=="On"){
+                r3.innerHTML="Off"
+            }
+            else{
+                r3.innerHTML="On"
+            }
+        }
+    </script>
+    <br>
+<div id="r4" style="border: 2px solid;width: 30%;height: 20%;text-align: center; background-color: grey;font-size: large;"></div>
+<button  onclick="gg()">True/False</button>
+<script>
+    var r4=document.getElementById("r4")
+    r4.innerHTML="i am nothing"
+    function gg(){
+        if(r4.innerHTML=="i am nothing")
+             r4.innerHTML="true"
+        else if(r4.innerHTML=="true"){
+            r4.innerHTML="false"
+        }
+        else{
+            r4.innerHTML="true"
+        }
+
+    }
+</script>
+<h1 style="color: red;text-align: center;">Like and Dislike Button</h1>
+<table align="center">
+    <tr>
+ <td><button onclick ="b()" style="background-color:mediumspringgreen;">Like</button></td>
+ <td><div id="l1" ></div></td>
+ </tr>
+ <tr>
+    <td><button onclick ="c()" style="background-color:red;">Dislike</button></td>
+    <td><div id="l2" ></div></td>
+</tr>
+</table>
+    <script>
+        var count=0
+        var l1=document.getElementById("l1")
+        l1.innerHTML=count
+        function b(){
+            count++
+            l1.innerHTML=count
+            
+        }
+        var x=0
+        var l2=document.getElementById("l2")
+        l2.innerHTML=x
+        function c(){
+            x++
+            l2.innerHTML=x
+        }
+    </script>
+    <div id="g1"style="border: 2px solid;width: 30%;height: 20%;text-align: center;"></div>
+     <button id="g2" onclick ="k()">ON</button>
+     <button id="g3" onclick ="l()">OFF</button>
+    <script>
+         var g2=document.getElementById("g2")
+         g2.style.backgroundColor="yellow"
+         var g1=document.getElementById("g1")
+        function k(){
+             if( g2.style.backgroundColor="red"){
+                g3.style.backgroundColor="white"
+                g1.style.backgroundColor="yellow"
+            }
+
+        }
+        var g3=document.getElementById("g3")
+            g3.style.backgroundColor="yellow"
+            var g1=document.getElementById("g1")
+        function l(){ 
+         if( g3.style.backgroundColor="red"){
+                g2.style.backgroundColor="white"
+                g1.style.backgroundColor="white"
+            } 
+        }
+        
+    </script>
+    <div id="h1" style="border: 2px solid;width: 30%;height: 20%;"></div>
+    <button id="h2" onclick ="h()">Toggle</button>
+    <script>
+        var h2=document.getElementById("h2")
+        h2.style.backgroundColor="yellow";
+        var h1=document.getElementById("h1")
+            h1.style.backgroundColor="white"
+        function h(){
+              if(h1.style.backgroundColor==="white"){
+                h1.style.backgroundColor="yellow"
+            }
+            else if( h1.style.backgroundColor==="yellow"){
+                h1.style.backgroundColor="white"
+            }
+        }
+    </script>
+    <br>
+    <br>
+
+    <img  id="w1"src="https://p7.hiclipart.com/preview/997/214/429/incandescent-light-bulb-led-lamp-electric-light-luminous-efficacy-bulb-thumbnail.jpg" >
+    <img id="w2"src="https://em-content.zobj.net/source/microsoft-teams/363/light-bulb_1f4a1.png" >
+    <br>
+    <button id="w3" onclick="w4()" style="background-color: yellow;"></button>
+    <script>
+        var w3=document.getElementById("w3")
+         w3.innerHTML="on"
+         var w1=document.getElementById("w1")
+        w1.style.display="block"
+        var w2=document.getElementById("w2")
+        w2.style.display="none"
+        function w4(){
+        if(w3.innerHTML=="on"){
+        w2.style.display="block"
+        w1.style.display="none"
+        w3.innerHTML="off"
+            }
+            else if(w3.innerHTML=="off"){
+        w2.style.display="none"
+        w1.style.display="block"
+        w3.innerHTML="on"
+                
+            }
+        }
+    </script>
+        <br>
+        <img onmouseover="rp(event)" style="width: 20%;height: 20%;"src="https://i.ytimg.com/vi/PCNNKVc_AyQ/maxresdefault.jpg">
+        <img onmouseover="rp(event)" style="width: 20%;height: 20%;"src="https://www.nicepng.com/png/detail/431-4318188_airplane-aircraft-drawing-aviation-black-and-white-sketch.png" >
+        <img onmouseover="rp(event)" style="width: 20%;height: 20%;" src="https://cdn.w600.comps.canstockphoto.com/aeroplane-drawings_csp0725323.jpg" >
+    
+        <img  id="t1" src="" alt="">
+        <script>
+            
+            function rp(e){
+                var y1=document.getElementById("t1")
+                y1.src=e.target.src
+                
+                }
+            
+
+        </script>
+
+    </body>
+</html>

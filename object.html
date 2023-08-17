@@ -1,0 +1,143 @@
+<html>
+    <head></head>
+    <body>
+        <script>
+        var person = {
+            "firstName" : "Harry",
+            "lastName" : "Potter",
+            "age": 30,
+            "gender": "male",
+            "skill" : "ReactJS",                                
+            "expertise": "Beginner"
+        };
+        console.log(person.firstName);
+        console.log(person.lastName);
+        console.log(person. firstName, person.lastName);
+        if( person.age<18){
+            console.log("false")
+        }
+        else{
+            console.log("true")
+        }
+        
+        </script>
+        <script>
+              var marks = {
+                                "maths" : 34,
+                                "english" : 56,
+                                "science": 32,
+                                "hindi" : 75,
+                                "social science": 65
+                            };
+        for(k in marks){
+        console.log(marks[k])}
+        for(k in marks){
+        console.log(k)}
+
+        var s=0;
+        for(k in marks){
+            s++
+        }
+        console.log(s)
+
+
+        var total=0
+        var sum
+        for( var k in marks){
+            if(marks[k]<=100){
+                total=total+marks[k];
+        var sum=(total/500)*100}
+       console.log(sum)}
+       
+
+       for(var k in marks){
+        if(marks[k]>35){
+            console.log(k);
+        }
+       }
+
+       for(var k in marks){
+        if(marks[k]>=35){
+            console.log("pass")
+        }
+        else{
+            console.log("fail")
+        }
+       }
+
+       for(var k in marks){
+        if(marks[k]>=35){
+            console.log(k)
+        }
+    }
+
+
+    var s=0;
+        for(k in marks){
+            if(marks[k]>=35){
+                s++
+            }   
+        }
+        console.log(s)
+   
+
+        for(var k in marks){
+        if(marks[k]<35){
+            console.log(k)
+        }
+    }
+    
+    var s=0;
+        for(k in marks){
+            if(marks[k]<35){
+                s++
+            }   
+        }
+        console.log(s)
+        var min=infinty
+        for(var k in marks){
+        if(marks[k]<min){
+           min=marks[k]
+            console.log(min)
+
+        }
+    }
+
+var max=-infinty
+for(var k in marks){
+        if(marks[k]>max){
+            max=marks[k]
+            console.log(max)
+
+        
+    }
+}
+var total;
+for(var k in marks){
+    total=total+marks[k]
+        if(total<35){
+            console.log("passed in all subjects ")
+        }
+        else{
+            console.log("not passed in all subjects")
+        }
+    }
+
+    for(k in marks){
+        var k=prompt()
+        if(marks[k]>35){
+            console.log(k,marks[k],"pass")
+        }
+        else{
+        console.log(k,marks[k],"fail")}
+    }
+
+
+    
+
+
+
+        </script>
+
+    </body>
+</html>

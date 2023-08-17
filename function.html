@@ -1,0 +1,124 @@
+<html>
+    <head></head>
+    <body>
+        //1.Write a function which can return the sum of two numbers.<br>
+        <script>
+        function add(a,b){
+            return a+b;
+                     }
+        var sum = add(45,67);
+        console.log(sum);
+        </script>
+        //2.Write a function which can return the greatest of the three numbers passed in arguments.
+        <script>
+            function compare(a,b,c){
+                    return (a>b)?((a>c)?a:c):((b>c)?b:c)
+                            }
+            var greatest = compare(45,67,23);
+            console.log(greatest);
+        </script>
+        //3.Write a function which can print the given arguments in ascending order.
+        <script>
+             function sortNums(a,b,c){
+                if(a<b){
+                        if(a<c){
+                            
+                       console.log(a,c,b)
+                       return(a<c<b)
+                        
+                    }
+                    else{
+                        console.log(c,a,b)
+                        return(c<a<b)
+                    }
+                }
+                else if(b<a){
+                    if(b<c){
+                        console.log(b,a,c)
+                        return(b<a<c)
+                    }
+                    else{
+                        
+                        console.log(c,b,a)
+                        return(c<b<a)
+                    }
+                } 
+                 
+            }
+                            var ascending = sortNums(45,7,68);
+                            console.log(ascending);
+        </script>
+        //4.Write a function which can return the factorial of a number.
+        <script>
+             function fact(a){
+                        var s=1
+                        for( var a=1;a<=4;a++){
+                            s=s*a    
+                        }
+                        return s
+                            }
+                            var factorial = fact(4);
+                            console.log(factorial);
+        </script>
+        <script>
+              function rev(a){
+                              var s=0
+                            while(a>0) {
+                                 var r=a%10
+                            s=s*10+r 
+                            a=parseInt(a/10)
+                        }    
+                            return s
+              }           
+
+                            var reverse = rev(48666);
+                            console.log(reverse);
+        </script>
+        <script>
+            function pr(a){
+                if (a <= 1) {
+               return false;
+                }
+                for( var i=2;i<a;i++){
+                    if(a%i!=0){
+                        return("prime")
+                    }
+                    else{
+                        return(" not a prime")
+                    }
+                }
+            }
+             var primenumber= pr(9);
+             console.log(primenumber);
+        </script>
+        <script>
+            function pa(a){
+                var n=a.length;
+                for (var i=0;i<n/2;i++){
+                    if(a[i]!==a[n-2-i]){
+                    return ("palindrome")
+                    }
+                    else{
+                        return("not a palindrome")
+                    }  
+                }
+            }
+            var palindrome= pa("ABCEDCBA");
+             console.log(palindrome);
+        </script>
+        <script>
+            function n(a){
+                var s=a;
+                if(s==0){
+                    s++
+                return s
+                }
+            }
+            var number= n(12345);
+             console.log(number);
+        </script>
+
+                    
+
+    </body>
+</html>

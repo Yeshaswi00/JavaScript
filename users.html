@@ -1,0 +1,326 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+        <style>
+            #d3{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+            #d3 li {
+                width:250px ;
+                list-style:none;
+                font-size:15px;
+                border:1px solid;
+                text-align: center;
+                font-family: verdana;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 10px 5px 15px 0px;
+                margin:10px 25px 10px 10px;
+            }
+        </style>
+    </head>
+    <body>
+       <button onclick="abc()">Click on me</button>
+            <table id="d1"></table>
+        <script>
+        var d1=document.getElementById("d1")
+        d1.style.border="1px solid"
+        var o=document.createElement('thead')
+        var x=document.createElement("tr")
+        var y=document.createElement("th")
+        y.style.border="1px solid"
+        y.innerHTML="id"
+        var y1=document.createElement("th")
+        y1.style.border="1px solid"
+        y1.innerHTML="name"
+        var y2=document.createElement("th")
+        y2.style.border="1px solid"
+        y2.innerHTML="username"
+        var y3=document.createElement("th")
+        y3.style.border="1px solid"
+        y3.innerHTML="email"
+        var y4=document.createElement("th")
+        y4.style.border="1px solid"
+        y4.innerHTML="address"
+        var y5=document.createElement("th")
+        y5.style.border="1px solid"
+        y5.style.paddingRight="35px"
+        y5.style.paddingLeft="35px"
+        y5.innerHTML="street"
+        var y6=document.createElement("th")
+        y6.style.border="1px solid"
+        y6.style.paddingRight="35px"
+        y6.style.paddingLeft="35px"
+        y6.innerHTML="suite"
+        var y7=document.createElement("th")
+        y7.style.border="1px solid"
+        y7.style.paddingRight="35px"
+        y7.style.paddingLeft="35px"
+        y7.innerHTML="city"
+        var y8=document.createElement("th")
+        y8.style.border="1px solid"
+        y8.innerHTML="phone"
+        var y9=document.createElement("th")
+        y9.style.border="1px solid"
+        y9.innerHTML="website"
+        x.appendChild(y)
+        x.appendChild(y1)
+        x.appendChild(y2)
+        x.appendChild(y3)
+        y4.appendChild(y5)
+        y4.appendChild(y6)
+        y4.appendChild(y7)
+        x.appendChild(y4)
+        x.appendChild(y8)
+        x.appendChild(y9)
+        o.appendChild(x)
+        d1.appendChild(x)
+        d1.appendChild(o)
+            function abc(){
+              $.get("https://jsonplaceholder.typicode.com/users",function(users,b){
+                //d1.innerHTML=''
+                console.log("users::",users)
+               
+                users.forEach(function(users) {
+                    var a=document.createElement("tr")
+                    a.style.border="1px solid"
+                    var b=document.createElement("td")
+                    b.style.border="1px solid"
+                    var c=document.createElement("td")
+                    c.style.border="1px solid"
+                    var d=document.createElement("td")
+                    d.style.border="1px solid"
+                    var e=document.createElement("td")
+                    e.style.border="1px solid"
+                    var f=document.createElement("td")
+                    f.style.border="1px solid"
+                    var g=document.createElement("td")
+                    g.style.border="1px solid"
+                    var h=document.createElement("td")
+                    h.style.border="1px solid"
+                    h.style.paddingRight="35px"
+                    h.style.paddingLeft="35px"
+                    var i=document.createElement("td")
+                    i.style.border="1px solid"
+                    i.style.paddingRight="35px"
+                    i.style.paddingLeft="35px"
+                    var j=document.createElement("td")
+                    j.style.border="1px solid"
+                    j.style.paddingRight="35px"
+                    j.style.paddingLeft="35px"
+                    var k=document.createElement("td")
+                    k.style.border="1px solid"
+                    var l=document.createElement("td")
+                    l.style.border="1px solid"
+                    b.innerHTML=users.id
+                    c.innerHTML=users.name
+                    d.innerHTML=users.username
+                    e.innerHTML=users.email
+                    h.innerHTML= users.address.street
+                    i.innerHTML=users.address.suite
+                    j.innerHTML=users.address.city
+                    k.innerHTML=users.phone
+                    l.innerHTML=users.website
+                    a.appendChild(b)
+                    a.appendChild(c)
+                    a.appendChild(d)
+                    a.appendChild(e)
+                    f.appendChild(h)
+                    f.appendChild(i)
+                    f.appendChild(j)
+                    a.appendChild(f)
+                    a.appendChild(k)
+                    a.appendChild(l)
+                    d1.appendChild(a)
+                    console.log(d1)
+
+
+                });
+                console.log("b:",b)
+            })
+            }
+        
+
+        </script>
+        <ul id="d2"></ul>
+        <script>
+                console.log(axios)
+                axios.get("https://jsonplaceholder.typicode.com/users").then(function(res){
+                    var users=res.data;
+                    var d2=document.getElementById("d2")
+                    users.forEach(function(value){
+                        var li=document.createElement("li")
+                        var ul=document.createElement("ul")
+                        var li1=document.createElement("li")
+                        li.innerHTML=value.name
+                        li1.innerHTML=value.username
+                        ul.appendChild(li1)
+                        li.appendChild(ul)
+                        d2.appendChild(li)
+                    })
+                }).catch(function(err){console.log(err)})
+
+            
+        </script>
+        <button onclick="hi()">Click on it</button>
+        <button onclick="ase()">Ascending</button>
+        <button onclick="dec()">Decending</button>
+        <input type="text" onkeyup="au()" id="fd">
+        <ul id="d3"></ul>
+        <script>
+            function hi(){
+                $.get("https://jsonplaceholder.typicode.com/users",function(users,status){
+                    console.log(users)
+                    d3.innerHTML=''
+                    users.forEach(function(users){
+                        var newli=document.createElement("li")
+                        var h5=document.createElement("h5")
+                        h5.innerHTML=users.name
+                        newli.appendChild(h5)
+                        var div=document.createElement("div")
+                        div.innerHTML="username:"+users.username
+                        newli.appendChild(div)
+                        var div1=document.createElement("div")
+                        div1.innerHTML= "email:"+users.email
+                        newli.appendChild(div1)
+                        var div2=document.createElement("div")
+                        newli.appendChild(div2)
+                        var div3=document.createElement("div")
+                        div3.innerHTML= "street:"+ users.address.street
+                        div2.appendChild(div3)
+                        var div4=document.createElement("div")
+                        div4.innerHTML="suite:"+ users.address.suite
+                        div2.appendChild(div4)
+                        var div5=document.createElement("div")
+                        div5.innerHTML= "city:"+users.address.city
+                        div2.appendChild(div5)
+                        var div6=document.createElement("div")
+                        div6.innerHTML= "phone:"+users.phone
+                        newli.appendChild(div6)
+                        var div7=document.createElement("div")
+                        div7.innerHTML= "website:"+users.website
+                        newli.appendChild(div7)
+                        document.getElementById("d3").appendChild(newli)
+                    })
+                })
+            }
+            function ase(){
+                $.get("https://jsonplaceholder.typicode.com/users",function(users,status){
+                    console.log(users)
+                        d3.innerHTML=''
+                  users.sort(function(a,b){
+                            if(a.name>b.name){
+                                return 1;
+                            }
+                            if(b.name>a.name){
+                                return -1;
+                            }
+                            return 0
+                        })
+                        users.forEach(function(users){
+                        var newli=document.createElement("li")
+                        var h5=document.createElement("h5")
+                        h5.innerHTML=users.name
+                        newli.appendChild(h5)
+                        var div=document.createElement("div")
+                        div.innerHTML="username:"+users.username
+                        newli.appendChild(div)
+                        var div1=document.createElement("div")
+                        div1.innerHTML="email:"+ users.email
+                        newli.appendChild(div1)
+                        var div2=document.createElement("div")
+                        newli.appendChild(div2)
+                        var div3=document.createElement("div")
+                        div3.innerHTML= "street:"+ users.address.street
+                        div2.appendChild(div3)
+                        var div4=document.createElement("div")
+                        div4.innerHTML="suite:"+ users.address.suite
+                        div2.appendChild(div4)
+                        var div5=document.createElement("div")
+                        div5.innerHTML= "city:"+users.address.city
+                        div2.appendChild(div5)
+                        var div6=document.createElement("div")
+                        div6.innerHTML= "phone:"+users.phone
+                        newli.appendChild(div6)
+                        var div7=document.createElement("div")
+                        div7.innerHTML= "website:"+users.website
+                        newli.appendChild(div7)
+                        document.getElementById("d3").appendChild(newli)
+                    })
+                })
+            }
+            function dec(){
+                $.get("https://jsonplaceholder.typicode.com/users",function(users,status){
+                    console.log(users)
+                        d3.innerHTML=''
+                  users.sort(function(a,b){
+                            if(a.name<b.name){
+                                return 1;
+                            }
+                            if(b.name<a.name){
+                                return -1;
+                            }
+                            return 0
+                        })
+                        users.forEach(function(users){
+                        var newli=document.createElement("li")
+                        var h5=document.createElement("h5")
+                        h5.innerHTML=users.name
+                        newli.appendChild(h5)
+                        var div=document.createElement("div")
+                        div.innerHTML="username:"+users.username
+                        newli.appendChild(div)
+                        var div1=document.createElement("div")
+                        div1.innerHTML="email:"+ users.email
+                        newli.appendChild(div1)
+                        var div2=document.createElement("div")
+                        newli.appendChild(div2)
+                        var div3=document.createElement("div")
+                        div3.innerHTML= "street:"+ users.address.street
+                        div2.appendChild(div3)
+                        var div4=document.createElement("div")
+                        div4.innerHTML="suite:"+ users.address.suite
+                        div2.appendChild(div4)
+                        var div5=document.createElement("div")
+                        div5.innerHTML= "city:"+users.address.city
+                        div2.appendChild(div5)
+                        var div6=document.createElement("div")
+                        div6.innerHTML= "phone:"+users.phone
+                        newli.appendChild(div6)
+                        var div7=document.createElement("div")
+                        div7.innerHTML= "website:"+users.website
+                        newli.appendChild(div7)
+                        document.getElementById("d3").appendChild(newli)
+                    })
+                })
+            }
+            var n=document.getElementById("fd")
+            function au(){
+            $.get("https://jsonplaceholder.typicode.com/users",function(abc,val){
+               var m= abc.filter(function(value,i){
+                return(value.name.toLowerCase().startsWith(n.value.toLowerCase()))
+               })
+               console.log(m)
+              d3.innerHTML=""
+               m.forEach(function(value,index){
+                       var c=document.createElement('li')
+                       c.innerHTML=value.name
+                       c.style.display='inline-block'
+                       c.style.padding="20px"
+                       c.style.textAlign='center'
+                       c.style.border='2px solid black'
+                       c.style.margin='10px'
+                       d3.appendChild(c)
+                       var b=document.createElement('div')
+                       b.innerHTML= "email:"+value.email
+                       c.appendChild(b)
+                    })
+          })
+   }
+        </script>
+
+    </body>
+</html>

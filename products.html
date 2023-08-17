@@ -1,0 +1,241 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+        <style>
+            #d3{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+            #d3 li {
+                width:200px ;
+                list-style:none;
+                font-size:20px;
+                border:1px solid;
+                text-align: center;
+                font-family: verdana;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 10px 5px 15px 0px;
+                margin-top: 50px;
+                margin-bottom: 50px;
+            }
+            #d3 li img{
+                width: 100px;
+                display: block;
+                text-align: center;
+            }
+            #d3 li div img{
+                margin-left: 50px;
+            }
+        </style>
+    </head>
+    <body>
+       <button onclick="abc()">Click on me</button>
+            <table id="d1"></table>
+        <script>
+            function abc(){
+              $.get("https://fakestoreapi.com/products",function(products,b){
+                console.log(products)
+                var y=document.createElement("tr")
+                var ar=["id","category","title","description","price","image"]
+                ar.forEach(function(values){
+               var d=document.createElement("th")
+                    d.innerHTML=values;
+                    d.style.border="1px solid"
+                    d.style.textAlign="center"
+                    y.appendChild(d)
+                    var d1=document.getElementById("d1").appendChild(y)
+                    console.log(values)
+    })
+               
+                products.forEach(function(products) {
+                    var a=document.createElement("tr")
+                    a.style.border="1px solid"
+                    var b=document.createElement("td")
+                    b.style.border="1px solid"
+                    var c=document.createElement("td")
+                    c.style.border="1px solid"
+                    var d=document.createElement("td")
+                    d.style.border="1px solid"
+                    var e=document.createElement("td")
+                    e.style.border="1px solid"
+                    var f=document.createElement("td")
+                    f.style.border="1px solid"
+                    var g=document.createElement("td")
+                    g.style.border="1px solid"
+                    var h=document.createElement("td")
+                    var img=document.createElement("img")
+                    img.src=products.image
+                    img.style.width="100%"
+                    img.style.height="50%"
+                    h.style.border="1px solid"
+                    b.innerHTML=products.id
+                    c.innerHTML=products.category
+                    d.innerHTML=products.title
+                    e.innerHTML=products.description
+                    f.innerHTML= "Price:"+products.price
+                    h.appendChild(img)
+                    a.appendChild(b)
+                    a.appendChild(c)
+                    a.appendChild(d)
+                    a.appendChild(e)
+                    a.appendChild(f)
+                    a.appendChild(h)
+                    d1.appendChild(a)
+                    console.log(d1)
+
+
+                });
+                console.log("b:",b)
+            })
+            }
+        </script>
+        <ul id="d2"></ul>
+        <script>
+                console.log(axios)
+                axios.get("https://fakestoreapi.com/products").then(function(res){
+                    var products=res.data;
+                    var d2=document.getElementById("d2")
+                    products.forEach(function(value){
+                        var li=document.createElement("li")
+                        var li1=document.createElement("li")
+                        li.innerHTML=value.title
+                        li1.innerHTML=value.price
+                        li.appendChild(li1)
+                        d2.appendChild(li)
+                    })
+                }).catch(function(err){console.log(err)})
+
+            
+        </script>
+        <button onclick="hi()">Click on it</button>
+        <button onclick="ase()">Ascending</button>
+        <button onclick="dec()">Decending</button>
+        <input type="text" onkeyup="au()" id="fd">
+        <ul id="d3"></ul>
+        <script>
+            function hi(){
+                $.get("https://fakestoreapi.com/products",function(products,status){
+                    console.log(products)
+                    d3.innerHTML=''
+                    products.forEach(function(products){
+                        var newli=document.createElement("li")
+                        var h5=document.createElement("h5")
+                        h5.innerHTML=products.title
+                        newli.appendChild(h5)
+                        var div=document.createElement("div")
+                        div.innerHTML=products.category
+                        newli.appendChild(div)
+                        var div1=document.createElement("div")
+                        div1.innerHTML= "Price:"+products.price
+                        newli.appendChild(div1)
+                        var img1=document.createElement("img")
+                        img1.src=products.image
+                        var div3=document.createElement("div")
+                        div3.appendChild(img1)
+                        newli.appendChild(div3)
+                        document.getElementById("d3").appendChild(newli)
+                    })
+                })
+            }
+            function ase(){
+                $.get("https://fakestoreapi.com/products",function(products,status){
+                    console.log(products)
+                        d3.innerHTML=''
+                  products.sort(function(a,b){
+                            if(a.price>b.price){
+                                return 1;
+                            }
+                            if(b.price>a.price){
+                                return -1;
+                            }
+                            return 0
+                        })
+                        products.forEach(function(products){
+                        var newli=document.createElement("li")
+                        var h5=document.createElement("h5")
+                        h5.innerHTML=products.title
+                        newli.appendChild(h5)
+                        var div=document.createElement("div")
+                        div.innerHTML=products.category
+                        newli.appendChild(div)
+                        var div1=document.createElement("div")
+                        div1.innerHTML= "Price:"+products.price
+                        newli.appendChild(div1)
+                        var img1=document.createElement("img")
+                        img1.src=products.image
+                        var div3=document.createElement("div")
+                        div3.appendChild(img1)
+                        newli.appendChild(div3)
+                        document.getElementById("d3").appendChild(newli)
+                    })
+                })
+            }
+            function dec(){
+                $.get("https://fakestoreapi.com/products",function(products,status){
+                    console.log(products)
+                        d3.innerHTML=''
+                  products.sort(function(a,b){
+                            if(a.price<b.price){
+                                return 1;
+                            }
+                            if(b.price<a.price){
+                                return -1;
+                            }
+                            return 0
+                        })
+                        products.forEach(function(products){
+                        var newli=document.createElement("li")
+                        var h5=document.createElement("h5")
+                        h5.innerHTML=products.title
+                        newli.appendChild(h5)
+                        var div=document.createElement("div")
+                        div.innerHTML=products.category
+                        newli.appendChild(div)
+                        var div1=document.createElement("div")
+                        div1.innerHTML= "Price:"+products.price
+                        newli.appendChild(div1)
+                        var img1=document.createElement("img")
+                        img1.src=products.image
+                        var div3=document.createElement("div")
+                        div3.appendChild(img1)
+                        newli.appendChild(div3)
+                        document.getElementById("d3").appendChild(newli)
+                    })
+                })
+            }
+            var n=document.getElementById("fd")
+            function au(){
+            $.get("https://fakestoreapi.com/products",function(abc,val){
+               var m= abc.filter(function(value,i){
+                return(value.title.toLowerCase().startsWith(n.value.toLowerCase()))
+               })
+               console.log(m)
+              d3.innerHTML=""
+               m.forEach(function(value,index){
+                       var c=document.createElement('li')
+                       c.innerHTML=value.title
+                       c.style.display='inline-block'
+                       c.style.padding="20px"
+                       c.style.textAlign='center'
+                       c.style.border='2px solid black'
+                       c.style.margin='10px'
+                       d3.appendChild(c)
+                       var b=document.createElement('div')
+                       b.innerHTML= "Price:"+value.price
+                       c.appendChild(b)
+                       var im=document.createElement('img')
+                       im.src=value.image
+                       im.style.width='200px'
+                       im.style.height='100px'
+                       im.style.display='flex'
+                       c.appendChild(im)
+                    })
+          })
+   }
+        </script>
+
+    </body>
+</html>

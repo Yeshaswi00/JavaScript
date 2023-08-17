@@ -1,0 +1,58 @@
+<html>
+    <head></head>
+    <body>
+        <script>
+            var a="banana"
+            for(i=0;i<a.length;i++){
+                if(i%2!==0){
+                    console.log(i)
+                }
+            }
+            var a="banana"
+            var b="a"
+            for(i=0;i<a.length;i++){
+                if(a[i]==b){
+                    console.log(i)
+                }
+            }
+            
+
+            var a="banana"
+            console.log(a.indexOf("a"))
+
+            var a="banana"
+            var b="a"
+            for(i=0;i<a.length-1;i++){
+                if(b==a[i]){
+                    console.log(i)
+                    break;
+                }
+            }
+
+            var a="banana"
+            console.log(a.lastIndexOf("a"))
+
+            var a="banana"
+            var b="a"
+            for(i=a.length-1;i>=0;i++){
+                if(b==a[i]){
+                    console.log(i)
+                    break;
+                }
+            }
+            var a="banana"
+            var c="a"
+             var s=0;
+            for(i=0;i<a.length;i++){
+                if(c==a[i]){
+                   s++
+                }
+            }
+            console.log(s)
+
+            var a="banana"
+            console.log(a.split("").reverse().join(""))
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,191 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+        <style>
+            #d3{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+            #d3 li {
+                width:200px ;
+                list-style:none;
+                font-size:20px;
+                border:1px solid;
+                text-align: center;
+                font-family: verdana;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 10px 5px 15px 0px;
+                margin: 10px 35px 10px 10px;
+            }
+        </style>
+    </head>
+    <body>
+       <button onclick="abc()">Click on me</button>
+            <table id="d1"></table>
+        <script>
+            function abc(){
+              $.get("https://jsonplaceholder.typicode.com/posts",function(posts,b){
+                console.log(posts)
+                var y=document.createElement("tr")
+                var ar=["id","title","body"]
+                ar.forEach(function(values){
+               var d=document.createElement("th")
+                    d.innerHTML=values;
+                    d.style.border="1px solid"
+                    d.style.textAlign="center"
+                    y.appendChild(d)
+                    var d1=document.getElementById("d1").appendChild(y)
+                    console.log(values)
+    })
+               
+                posts.forEach(function(posts) {
+                    var a=document.createElement("tr")
+                    a.style.border="1px solid"
+                    var b=document.createElement("td")
+                    b.style.border="1px solid"
+                    var c=document.createElement("td")
+                    c.style.border="1px solid"
+                    var d=document.createElement("td")
+                    d.style.border="1px solid"
+                    b.innerHTML=posts.id
+                    c.innerHTML=posts.title
+                    d.innerHTML=posts.body
+                    a.appendChild(b)
+                    a.appendChild(c)
+                    a.appendChild(d)
+                    d1.appendChild(a)
+                    console.log(d1)
+
+
+                });
+                console.log("b:",b)
+            })
+            }
+        </script>
+        <ul id="d2"></ul>
+        <script>
+                console.log(axios)
+                axios.get("https://jsonplaceholder.typicode.com/posts").then(function(res){
+                    var posts=res.data;
+                    var d2=document.getElementById("d2")
+                    posts.forEach(function(value){
+                        var li=document.createElement("li")
+                        var li1=document.createElement("li")
+                        li.innerHTML= "Title:"+value.title
+                        d2.appendChild(li)
+                    })
+                }).catch(function(err){console.log(err)})
+
+            
+        </script>
+        <input type="text" id="fd" onkeyup="au()">
+        <button onclick="hi()">Click on it</button>
+        <button onclick="ase()">Ascending</button>
+        <button onclick="dec()">Decending</button>
+        <ul id="d3"></ul>
+        <script>
+            function hi(){
+                $.get("https://jsonplaceholder.typicode.com/posts",function(posts,status){
+                    console.log(posts)
+                    d3.innerHTML=''
+                    posts.forEach(function(posts){
+                        var newli=document.createElement("li")
+                        var h5=document.createElement("h5")
+                        h5.innerHTML= "Title:"+posts.title
+                        newli.appendChild(h5)
+                        var div1=document.createElement("div")
+                        div1.innerHTML= "Id:"+posts.id
+                        newli.appendChild(div1)
+                        var div=document.createElement("div")
+                        div.innerHTML= "Body:"+posts.body
+                        newli.appendChild(div)
+                        document.getElementById("d3").appendChild(newli)
+                    })
+                })
+            }
+            function ase(){
+                $.get("https://jsonplaceholder.typicode.com/posts",function(posts,status){
+                    console.log(posts)
+                        d3.innerHTML=''
+                  posts.sort(function(a,b){
+                            if(a.id>b.id){
+                                return 1;
+                            }
+                            if(b.id>a.id){
+                                return -1;
+                            }
+                            return 0
+                        })
+                        posts.forEach(function(posts){
+                            var newli=document.createElement("li")
+                        var h5=document.createElement("h5")
+                        h5.innerHTML= "Title:"+posts.title
+                        newli.appendChild(h5)
+                        var div1=document.createElement("div")
+                        div1.innerHTML= "Id:"+posts.id
+                        newli.appendChild(div1)
+                        var div=document.createElement("div")
+                        div.innerHTML= "Body:"+posts.body
+                        newli.appendChild(div)
+                        document.getElementById("d3").appendChild(newli)
+                    })
+                })
+            }
+            function dec(){
+                $.get("https://jsonplaceholder.typicode.com/posts",function(posts,status){
+                    console.log(posts)
+                        d3.innerHTML=''
+                  posts.sort(function(a,b){
+                            if(a.title<b.title){
+                                return 1;
+                            }
+                            if(b.title<a.title){
+                                return -1;
+                            }
+                            return 0
+                        })
+                        posts.forEach(function(posts){
+                            var newli=document.createElement("li")
+                        var h5=document.createElement("h5")
+                        h5.innerHTML= "Title:"+posts.title
+                        newli.appendChild(h5)
+                        var div1=document.createElement("div")
+                        div1.innerHTML= "Id:"+posts.id
+                        newli.appendChild(div1)
+                        var div=document.createElement("div")
+                        div.innerHTML="Body:"+posts.body
+                        newli.appendChild(div)
+                        document.getElementById("d3").appendChild(newli)
+                    })
+                })
+            }
+            var n=document.getElementById("fd")
+            function au(){
+            $.get("https://jsonplaceholder.typicode.com/posts",function(abc,val){
+               var m= abc.filter(function(value,i){
+                return(value.title.toLowerCase().startsWith(n.value.toLowerCase()))
+               })
+               console.log(m)
+              d3.innerHTML=""
+               m.forEach(function(value,index){
+                       var c=document.createElement('li')
+                       c.innerHTML= "Title:"+value.title
+                       c.style.display='inline-block'
+                       c.style.padding="20px"
+                       c.style.textAlign='center'
+                       c.style.border='2px solid black'
+                       c.style.margin='10px'
+                       d3.appendChild(c)
+                       var b=document.createElement('div')
+                       b.innerHTML= "Body:"+value.body
+                       c.appendChild(b)
+                    })
+          })
+   }
+        </script>
+
+    </body>
+</html>
